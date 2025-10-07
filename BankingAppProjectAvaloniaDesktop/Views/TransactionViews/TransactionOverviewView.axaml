@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:BankingAppProjectAvaloniaDesktop.ViewModels"
+        d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BankingAppProjectAvaloniaDesktop.Views.TransactionOverviewView"
+        x:DataType="vm:TransactionOverviewViewModel">
+    <Grid ColumnDefinitions="Auto,Auto" 
+    HorizontalAlignment="Center"
+    Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="20" MaxHeight="100"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" 
+        VerticalAlignment="Center" HorizontalAlignment="Center" 
+        FontSize="24"
+        Text="Transaction Overview"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" 
+        VerticalAlignment="Center" 
+        Margin="6" 
+        Text="{Binding TransactionType, StringFormat='Amount to {0}:', FallbackValue='Amount to \{TransactionType\}:'}"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" 
+        VerticalAlignment="Center" 
+        Margin="6" 
+        Text="{Binding TransactionAmount}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" 
+        VerticalAlignment="Center" 
+        Margin="6" 
+        Text="Current Bank Balance:"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" 
+        VerticalAlignment="Center" 
+        Margin="6" 
+        Text="{Binding BankBalance, StringFormat='{}{0}', FallbackValue='\{BankBalance\}'}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" 
+        VerticalAlignment="Center" 
+        Margin="6" 
+        Text="Bank Balance after transaction:"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" 
+        VerticalAlignment="Center" 
+        Margin="6" 
+        Text="{Binding ResultBankBalance, FallbackValue='\{ResultBankBalance\}'}"/>
+
+        <Button Grid.ColumnSpan="2" Grid.Row="4" 
+        VerticalAlignment="Center" HorizontalAlignment="Center" 
+        Margin="25" 
+        Command="{Binding GoToTransactionResponseViewCommand}"
+        Content="Confirm"/>
+
+        <Button Grid.ColumnSpan="2" Grid.Row="5" 
+        VerticalAlignment="Center" HorizontalAlignment="Center" 
+        Margin="0,6,0,35" 
+        Command="{Binding GoToMainMenuViewCommand}"
+        Content="Cancel"/>
+    </Grid>
+</UserControl>

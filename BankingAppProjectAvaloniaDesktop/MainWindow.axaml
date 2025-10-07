@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:BankingAppProjectAvaloniaDesktop.Views"
+        xmlns:vm="using:BankingAppProjectAvaloniaDesktop.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BankingAppProjectAvaloniaDesktop.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="BankingAppProjectAvaloniaDesktop"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataTemplates>
+        <DataTemplate DataType="vm:LoginViewModel">
+            <views:LoginView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:CreateAccountViewModel">
+            <views:CreateAccountView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:MainMenuViewModel">
+            <views:MainMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:TransactionFormViewModel">
+            <views:TransactionFormView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:TransactionOverviewViewModel">
+            <views:TransactionOverviewView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:TransactionResponseViewModel">
+            <views:TransactionResponseView/>
+        </DataTemplate>
+    </Window.DataTemplates>
+    <ContentControl Content="{Binding Navigation.CurrentView}" />
+</Window>
