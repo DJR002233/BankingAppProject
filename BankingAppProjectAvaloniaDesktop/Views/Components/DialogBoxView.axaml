@@ -1,0 +1,13 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="BankingAppProjectAvaloniaDesktop.Views.Components.DialogBoxView"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        ShowInTaskbar="False"
+        Title="Title">
+    <StackPanel VerticalAlignment="Center" Margin="10" Spacing="10">
+        <TextBlock x:Name="MessageText" FontSize="14" TextWrapping="Wrap"/>
+        <Button Content="OK" Width="80" HorizontalAlignment="Right" Click="OnOkClick"/>
+    </StackPanel>
+</Window>
