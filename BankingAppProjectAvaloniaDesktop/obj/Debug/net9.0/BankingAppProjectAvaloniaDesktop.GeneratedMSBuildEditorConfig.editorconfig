@@ -15,38 +15,38 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BankingAppProjectAvaloniaDesktop
-build_property.ProjectDir = /home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/
+build_property.ProjectDir = /home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/App.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/MainWindow.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/Components/DialogBoxView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/Components/DialogBoxView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/Components/LoadingView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/Components/LoadingView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/CreateAccountView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/CreateAccountView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/LoginView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/LoginView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/MainMenuView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/MainMenuView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/TransactionViews/TransactionFormView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/TransactionViews/TransactionFormView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/TransactionViews/TransactionOverviewView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/TransactionViews/TransactionOverviewView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/Views/TransactionViews/TransactionResponseView.axaml]
+[/home/sin/Projects/C\#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/Views/TransactionViews/TransactionResponseView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
