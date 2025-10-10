@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj": {}
+    "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj": {}
   },
   "projects": {
-    "/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj": {
+    "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj",
+        "projectUniqueName": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj",
         "projectName": "BankingAppProjectAvaloniaDesktop",
-        "projectPath": "/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj",
+        "projectPath": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/BankingAppProjectAvaloniaDesktop.csproj",
         "packagesPath": "/home/sin/.nuget/packages/",
-        "outputPath": "/home/sin/Music/akdfjioan/BankingAppProjectAvaloniaDesktop/obj/",
+        "outputPath": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectAvaloniaDesktop/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/sin/.nuget/NuGet/NuGet.Config"
@@ -88,6 +88,7 @@
               "version": "[9.0.9, )"
             },
             "Microsoft.Extensions.Http": {
+              "suppressParent": "Build, ContentFiles, Analyzers, BuildTransitive",
               "target": "Package",
               "version": "[9.0.9, )"
             }

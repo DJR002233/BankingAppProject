@@ -65,8 +65,6 @@ public class LoginViewModel : ViewModelBase
         IsLoading = false;
         GoToCreateAccountViewCommand = new RelayCommand(
             _ => _navigation.NavigateTo(_createAccountVM()));
-        // GoToCreateAccountViewCommand = new RelayCommand(
-        //     async _ => await InitializeAsync());
         GoToMainMenuViewCommand = new AsyncRelayCommand(async PasswordBox =>
         {
             if (PasswordBox is not TextBox passwordBox)
@@ -109,11 +107,6 @@ public class LoginViewModel : ViewModelBase
             IsLoading = false;
             LoadingMessage = null;
             await DialogBox.Show("Error", "Unknown Error!");
-            // Console.WriteLine(res.Title);
-            // Console.WriteLine(res.Status);
-            // Console.WriteLine(res.StatusMessage);
-            // Console.WriteLine(res.Message);
-            // Console.WriteLine(res.Data);
         });
     }
     public async Task InitializeAsync()

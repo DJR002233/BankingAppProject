@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1Gg70g3tMG0=",
+  "dgSpecHash": "KvDGA1Hn6Z8=",
   "success": true,
-  "projectFilePath": "/home/sin/Music/akdfjioan/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj",
+  "projectFilePath": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj",
   "expectedPackageFiles": [
     "/home/sin/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/sin/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

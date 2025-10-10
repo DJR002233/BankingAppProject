@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/sin/Music/akdfjioan/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj": {}
+    "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj": {}
   },
   "projects": {
-    "/home/sin/Music/akdfjioan/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj": {
+    "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sin/Music/akdfjioan/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj",
+        "projectUniqueName": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj",
         "projectName": "BankingAppProjectWebAPI",
-        "projectPath": "/home/sin/Music/akdfjioan/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj",
+        "projectPath": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectWebAPI/BankingAppProjectWebAPI.csproj",
         "packagesPath": "/home/sin/.nuget/packages/",
-        "outputPath": "/home/sin/Music/akdfjioan/BankingAppProjectWebAPI/obj/",
+        "outputPath": "/home/sin/Projects/C#/Intermediate/BankingApp/BankingAppProjectWebAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/sin/.nuget/NuGet/NuGet.Config"
