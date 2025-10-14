@@ -41,6 +41,7 @@ public class AuthServiceTests
                 Data = new AuthModel
                 {
                     AccessToken = "fake_token",
+                    Expiration = DateTime.UtcNow.AddDays(7),
                     RefreshToken = "fake_refresh",
                 }
             })

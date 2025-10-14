@@ -8,6 +8,7 @@ using BankingAppProjectAvaloniaDesktop.Services;
 using BankingAppProjectAvaloniaDesktop.Services.Auth;
 using Microsoft.Extensions.Configuration;
 using System.Net.Http;
+using BankingAppProjectAvaloniaDesktop.Services.Helper;
 
 namespace BankingAppProjectAvaloniaDesktop;
 
@@ -31,6 +32,7 @@ public static class ServiceCollectionExtension
         services.AddSingleton<IAuthEventService, AuthEventService>();
         services.AddSingleton<ISessionManager, SessionManager>();
         services.AddSingleton<SessionManager>();
+        services.AddSingleton<LoadingOverlay>();
         services.AddTransient<SessionHeaderHandler>();
 
         // In DI setup
