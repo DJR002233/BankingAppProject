@@ -53,7 +53,7 @@ public class AuthServiceTests
             BaseAddress = new System.Uri("http://localhost:5000/")
         };
 
-        var mockSessionManager = new Mock<SessionManager>(null!, null!, null!);
+        var mockSessionManager = new Mock<ISessionManager>();
         mockSessionManager.Setup(x => x.SetSession(It.IsAny<AuthModel>()));
 
         var authService = new AuthService(httpClient, mockSessionManager.Object);
@@ -65,7 +65,7 @@ public class AuthServiceTests
         Assert.Equal("Success", result.StatusMessage);
         mockSessionManager.Verify(x => x.SetSession(It.IsAny<AuthModel>()), Times.Once);
     }
-
+    
     [Fact]
     public async Task LoginAsync_ShouldReturnFailed_WhenServerRespondsWithFailure()
     {
@@ -80,9 +80,11 @@ public class AuthServiceTests
         };
 
         var handler = new FakeHttpMessageHandler(fakeResponse);
-        var httpClient = new HttpClient(handler);
-        var mockSessionManager = new Mock<SessionManager>(null!, null!, null!);
-
+        var httpClient = new HttpClient(handler)
+        {
+            BaseAddress = new System.Uri("http://localhost:5000/")
+        };
+        var mockSessionManager = new Mock<ISessionManager>();
         var authService = new AuthService(httpClient, mockSessionManager.Object);
 
         // Act
@@ -93,7 +95,7 @@ public class AuthServiceTests
         Assert.Equal("Invalid credentials", result.Message);
         mockSessionManager.Verify(x => x.SetSession(It.IsAny<AuthModel>()), Times.Never);
     }
-
+    
     [Fact]
     public async Task LoginAsync_ShouldReturnError_WhenExceptionIsThrown()
     {
@@ -106,8 +108,11 @@ public class AuthServiceTests
             .Throws(new HttpRequestException("Server down")
         );
 
-        var httpClient = new HttpClient(handler.Object);
-        var mockSessionManager = new Mock<SessionManager>(null!, null!, null!);
+        var httpClient = new HttpClient(handler.Object)
+        {
+            BaseAddress = new System.Uri("http://localhost:5000/")
+        };
+        var mockSessionManager = new Mock<ISessionManager>();
         var authService = new AuthService(httpClient, mockSessionManager.Object);
 
         // Act
@@ -117,4 +122,5 @@ public class AuthServiceTests
         Assert.Equal("Error", result.StatusMessage);
         Assert.Contains("Server down", result.Message);
     }
+    /**/
 }

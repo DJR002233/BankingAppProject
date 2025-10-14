@@ -10,9 +10,9 @@ namespace BankingAppProjectAvaloniaDesktop.Services;
 public class BankAccountService
 {
     private readonly HttpClient _httpClient;
-    private readonly SessionManager _sessionManager;
+    private readonly ISessionManager _sessionManager;
 
-    public BankAccountService(HttpClient httpClient, SessionManager sessionManager)
+    public BankAccountService(HttpClient httpClient, ISessionManager sessionManager)
     {
         _httpClient = httpClient;
         _sessionManager = sessionManager;

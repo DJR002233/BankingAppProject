@@ -31,7 +31,7 @@ public static class ServiceCollectionExtension
         //services.AddSingleton<Session>();
         services.AddSingleton<IAuthEventService, AuthEventService>();
         services.AddSingleton<ISessionManager, SessionManager>();
-        services.AddSingleton<SessionManager>();
+        //services.AddSingleton<SessionManager>();
         services.AddSingleton<LoadingOverlay>();
         services.AddTransient<SessionHeaderHandler>();
 
