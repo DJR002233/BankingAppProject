@@ -26,7 +26,7 @@ public class LoginViewModel : ViewModelBase
 
     #region Commands
     public RelayCommand GoToCreateAccountViewCommand { get; }
-    public AsyncRelayCommand GoToMainMenuViewCommand { get; }
+    public AsyncRelayCommand<object> GoToMainMenuViewCommand { get; }
     #endregion Commands
 
     #region Fields
@@ -52,7 +52,7 @@ public class LoginViewModel : ViewModelBase
         this.loadingOverlay = loadingOverlay;
         GoToCreateAccountViewCommand = new RelayCommand(
             _ => _navigation.NavigateTo(_createAccountVM()));
-        GoToMainMenuViewCommand = new AsyncRelayCommand(async passwordBox => await LoginAsync(passwordBox));
+        GoToMainMenuViewCommand = new AsyncRelayCommand<object>(LoginAsync);
     }
 
     public async Task LoginAsync(object? passwordBox)

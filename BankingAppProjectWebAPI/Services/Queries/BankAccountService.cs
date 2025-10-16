@@ -27,7 +27,9 @@ public class BankAccountService
         var bankAccount = await _context.BankAccounts.FirstOrDefaultAsync(b => b.AccountId == id);
         if (bankAccount is null)
             return new Response<object> {StatusMessage = "Error", Message = "Bank account not found!\nPlease login again..."};
-
+	
+	if (bankAccount.Money < amount)
+	    return new Response<object> {StatusMessage = "Failed", Message = "Insufficient Funds!"};
         bankAccount.Money -= amount;
         await _context.SaveChangesAsync();
         return new Response<object>() { StatusMessage = "Success" };

@@ -19,15 +19,8 @@ public class BankAccountService
     }
     public async Task<SimpleDialogModel<object>> LogoutAsync()
     {
-        try
-        {
-            var res = await _sessionManager.TerminateSession();
-            return res;
-        }
-        catch (Exception ex)
-        {
-            return new SimpleDialogModel<object> { Title = "Exception", StatusMessage = "Error", Message = ex.Message };
-        }
+        var res = await _sessionManager.TerminateSession();
+        return res;
     }
     public async Task<SimpleDialogModel<object>> GetBankBalanceAsync()
     {
@@ -57,7 +50,7 @@ public class BankAccountService
         }
         catch (Exception ex)
         {
-            return new SimpleDialogModel<object> { Title = "Exception", Message = ex.Message };
+            return new SimpleDialogModel<object> { Title = "Exception", StatusMessage = "Error", Message = ex.Message };
         }
     }
 
@@ -75,7 +68,7 @@ public class BankAccountService
         }
         catch (Exception ex)
         {
-            return new SimpleDialogModel<object> { Title = "Exception", Message = ex.Message };
+            return new SimpleDialogModel<object> { Title = "Exception", StatusMessage = "Error", Message = ex.Message };
         }
     }
 

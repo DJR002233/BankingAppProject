@@ -1,8 +1,6 @@
 using System.Net;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Threading;
-using System.Threading.Tasks;
+using BankingApp.Services;
 using BankingAppProjectAvaloniaDesktop.Models;
 using BankingAppProjectAvaloniaDesktop.Services;
 using BankingAppProjectAvaloniaDesktop.Services.Auth;
@@ -10,25 +8,10 @@ using Moq;
 using Moq.Protected;
 using Xunit;
 
-namespace BankingApp.Tests;
+namespace BankingApp.Tests.Services;
 
-public class AuthServiceTests
+public class LoginTests
 {
-    private class FakeHttpMessageHandler : HttpMessageHandler
-    {
-        private readonly HttpResponseMessage _fakeResponse;
-
-        public FakeHttpMessageHandler(HttpResponseMessage response)
-        {
-            _fakeResponse = response;
-        }
-
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            return Task.FromResult(_fakeResponse);
-        }
-    }
-
     [Fact]
     public async Task LoginAsync_ShouldReturnSuccess_WhenServerRespondsSuccessfully()
     {
@@ -47,11 +30,7 @@ public class AuthServiceTests
             })
         };
 
-        var handler = new FakeHttpMessageHandler(fakeResponse);
-        var httpClient = new HttpClient(handler)
-        {
-            BaseAddress = new System.Uri("http://localhost:5000/")
-        };
+        HttpClient httpClient = new FakeHttpMessageHandler(fakeResponse).FakeHttpClient();
 
         var mockSessionManager = new Mock<ISessionManager>();
         mockSessionManager.Setup(x => x.SetSession(It.IsAny<AuthModel>()));
@@ -79,11 +58,8 @@ public class AuthServiceTests
             })
         };
 
-        var handler = new FakeHttpMessageHandler(fakeResponse);
-        var httpClient = new HttpClient(handler)
-        {
-            BaseAddress = new System.Uri("http://localhost:5000/")
-        };
+        HttpClient httpClient = new FakeHttpMessageHandler(fakeResponse).FakeHttpClient();
+
         var mockSessionManager = new Mock<ISessionManager>();
         var authService = new AuthService(httpClient, mockSessionManager.Object);
 
@@ -110,7 +86,7 @@ public class AuthServiceTests
 
         var httpClient = new HttpClient(handler.Object)
         {
-            BaseAddress = new System.Uri("http://localhost:5000/")
+            BaseAddress = new Uri("http://localhost:5000/")
         };
         var mockSessionManager = new Mock<ISessionManager>();
         var authService = new AuthService(httpClient, mockSessionManager.Object);
