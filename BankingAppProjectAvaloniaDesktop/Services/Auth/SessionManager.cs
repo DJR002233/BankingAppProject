@@ -89,6 +89,7 @@ public class SessionManager : ISessionManager
             _accessToken = null;
             _expiration = null;
             _refreshToken = null;
+            await _credentialsStore.DeleteAsync();
             return new SimpleDialogModel<object> { Title = "Exception", StatusMessage = "Error", Message = ex.Message };
         }
     }

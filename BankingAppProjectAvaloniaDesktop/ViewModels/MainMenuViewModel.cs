@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BankingAppProjectAvaloniaDesktop.Commands;
 using BankingAppProjectAvaloniaDesktop.Models;
 using BankingAppProjectAvaloniaDesktop.Services;
+using BankingAppProjectAvaloniaDesktop.Services.Helper;
 using BankingAppProjectAvaloniaDesktop.Servicesl;
 
 namespace BankingAppProjectAvaloniaDesktop.ViewModels;
@@ -12,6 +13,7 @@ public class MainMenuViewModel : ViewModelBase
     #region Services
     private readonly NavigationService _navigation;
     private readonly BankAccountService _bankAccountService;
+    public LoadingOverlay loadingOverlay { get; }
     #endregion Services
 
     #region VMs
@@ -26,8 +28,6 @@ public class MainMenuViewModel : ViewModelBase
 
     #region Fields
     private decimal? _bankBalance;
-    private bool _isLoading;
-    private string? _loadingMessage;
     #endregion Fields
 
     #region Properties
@@ -41,24 +41,6 @@ public class MainMenuViewModel : ViewModelBase
             RaisePropertyChanged(nameof(BankBalanceCurrency));
         }
     }
-    public bool IsLoading
-    {
-        get => _isLoading;
-        set
-        {
-            _isLoading = value;
-            RaisePropertyChanged();
-        }
-    }
-    public string? LoadingMessage
-    {
-        get => _loadingMessage;
-        set
-        {
-            _loadingMessage = value;
-            RaisePropertyChanged();
-        }
-    }
     public string BankBalanceCurrency
     {
         get => $"{_bankBalance:C}";
@@ -66,12 +48,13 @@ public class MainMenuViewModel : ViewModelBase
 
     #endregion Properties
 
-    public MainMenuViewModel(NavigationService navigation, BankAccountService bankAccountService, Func<string, decimal, TransactionFormViewModel> transactionFormVM, Func<LoginViewModel> loginVM)
+    public MainMenuViewModel(NavigationService navigation, BankAccountService bankAccountService, Func<string, decimal, TransactionFormViewModel> transactionFormVM, Func<LoginViewModel> loginVM, LoadingOverlay loadingOverlay)
     {
         _navigation = navigation;
         _bankAccountService = bankAccountService;
         _transactionFormVM = transactionFormVM;
         _loginVM = loginVM;
+        this.loadingOverlay = loadingOverlay;
         GoToLoginViewCommand = new AsyncRelayCommand(async _ => await GoToLoginView());
         GoToTransactionFormViewCommand = new AsyncRelayCommand<object>(GoToTransactionFormView);
     }
@@ -115,19 +98,16 @@ public class MainMenuViewModel : ViewModelBase
     {
         if (BankBalance is not null)
             return true;
-        LoadingMessage = "Loading Bank Information...";
-        IsLoading = true;
+        loadingOverlay.Show("Loading Bank Information...");
         SimpleDialogModel<object> bankBalance = await _bankAccountService.GetBankBalanceAsync();
         if (bankBalance.StatusMessage == "Success")
         {
             BankBalance = decimal.Parse(bankBalance.Data!.ToString()!);
-            IsLoading = false;
-            LoadingMessage = null;
+            loadingOverlay.Close();
             return true;
         }
         //await _bankAccountService.LogoutAsync();
-        // IsLoading = false;
-        // LoadingMessage = null;
+        // loadingOverlay.Close();
         await DialogBox.Show(bankBalance.StatusMessage, bankBalance.Message);
         _navigation.NavigateTo(_loginVM());
         return false;

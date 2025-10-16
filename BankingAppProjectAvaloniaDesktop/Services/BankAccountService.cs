@@ -62,7 +62,7 @@ public class BankAccountService
             {
                 Amount = amount
             };
-            var response = await _httpClient.PostAsJsonAsync("bankaccounts/deposit",bodyData);
+            var response = await _httpClient.PostAsJsonAsync("bankaccounts/deposit", bodyData);
             var content = await response.Content.ReadFromJsonAsync<ApiResponseModel<object>>();
             return ApiResponse.Simplify(content);
         }
