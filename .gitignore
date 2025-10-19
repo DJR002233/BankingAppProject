@@ -53,6 +53,7 @@ publish/
 out/
 
 # Configuration files generated at runtime
+appsettings.json
 appsettings.Development.json
 appsettings.Production.json
 launchSettings.json
