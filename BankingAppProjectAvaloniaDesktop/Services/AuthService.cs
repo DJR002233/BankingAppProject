@@ -43,7 +43,7 @@ public class AuthService
         }
     }
 
-    public async Task<SimpleDialogModel<object>> CreateAccountAsync(string? name, string? email, string? password)
+    public async Task<SimpleDialogModel> CreateAccountAsync(string? name, string? email, string? password)
     {
         try
         {
@@ -54,12 +54,24 @@ public class AuthService
                 Name = name
             };
             var response = await _httpClient.PostAsJsonAsync("http://localhost:5223/api/accounts/sign_up", AccountData);
-            var content = await response.Content.ReadFromJsonAsync<ApiResponseModel<object>>();
+            var content = await response.Content.ReadFromJsonAsync<ApiResponseModel>();
             return ApiResponse.Simplify(content);
         }
         catch (Exception ex)
         {
-            return new SimpleDialogModel<object> { Title = "Exception", StatusMessage = "Error", Message = ex.Message };
+            return new SimpleDialogModel { Title = "Exception", StatusMessage = "Error", Message = ex.Message };
+        }
+    }
+
+    public async Task<SimpleDialogModel<string>> ResumeSession()
+    {
+        try
+        {
+            await _sessionManager.InitializeSession();
+            SimpleDialogModel<string> res = await _sessionManager.GetAccessTokenAsync();
+            return res;
+        }catch (Exception ex){
+            return new SimpleDialogModel<string> { Title = "Exception", StatusMessage = "Error", Message = ex.Message, Data = "" };
         }
     }
 }

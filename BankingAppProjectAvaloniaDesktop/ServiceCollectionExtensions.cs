@@ -30,8 +30,8 @@ public static class ServiceCollectionExtension
         services.AddTransient<AuthHeaderHandler>();
         //services.AddSingleton<Session>();
         services.AddSingleton<IAuthEventService, AuthEventService>();
-        services.AddSingleton<ISessionManager, SessionManager>();
-        //services.AddSingleton<SessionManager>();
+        //services.AddSingleton<ISessionManager, SessionManager>();
+        services.AddSingleton<SessionManager>();
         services.AddSingleton<LoadingOverlay>();
         services.AddTransient<SessionHeaderHandler>();
 
@@ -41,7 +41,7 @@ public static class ServiceCollectionExtension
             client.BaseAddress = baseUri;
         }).AddHttpMessageHandler<SessionHeaderHandler>().AddHttpMessageHandler<NetworkErrorHandler>();
 
-        services.AddSingleton(sp =>
+        services.AddSingleton<ISessionManager>(sp =>
         {
             var factory = sp.GetRequiredService<IHttpClientFactory>();
             var client = factory.CreateClient("ApiClient");

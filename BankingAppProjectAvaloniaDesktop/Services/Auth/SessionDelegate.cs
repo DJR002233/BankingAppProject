@@ -11,7 +11,7 @@ public class SessionHeaderHandler : DelegatingHandler
 {
     private readonly ISessionManager _sessionManager;
     private readonly IAuthEventService _authEvent;
-    public SessionHeaderHandler(ISessionManager sessionManager, IAuthEventService authEvent)
+    public SessionHeaderHandler(SessionManager sessionManager, IAuthEventService authEvent)
     {
         _sessionManager = sessionManager;
         _authEvent = authEvent;

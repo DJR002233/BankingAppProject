@@ -15,7 +15,6 @@ public class LoginViewModel : ViewModelBase
     #region Services
     private readonly NavigationService _navigation;
     private readonly AuthService _authService;
-    private readonly SessionManager _sessionManager;
     public LoadingOverlay loadingOverlay { get; }
     #endregion Services
 
@@ -42,13 +41,12 @@ public class LoginViewModel : ViewModelBase
 
     #endregion Properties
 
-    public LoginViewModel(NavigationService navigation, AuthService authService, Func<CreateAccountViewModel> createAccountVM, Func<MainMenuViewModel> mainMenuVM, SessionManager sessionManager, LoadingOverlay loadingOverlay)
+    public LoginViewModel(NavigationService navigation, AuthService authService, Func<CreateAccountViewModel> createAccountVM, Func<MainMenuViewModel> mainMenuVM, LoadingOverlay loadingOverlay)
     {
         _navigation = navigation;
         _authService = authService;
         _createAccountVM = createAccountVM;
         _mainMenuVM = mainMenuVM;
-        _sessionManager = sessionManager;
         this.loadingOverlay = loadingOverlay;
         GoToCreateAccountViewCommand = new RelayCommand(
             _ => _navigation.NavigateTo(_createAccountVM()));
@@ -96,8 +94,7 @@ public class LoginViewModel : ViewModelBase
     public async Task InitializeAsync()
     {
         loadingOverlay.Show("Checking Session...");
-        await _sessionManager.InitializeSession();
-        SimpleDialogModel<string>? res = await _sessionManager.GetAccessTokenAsync();
+        SimpleDialogModel<string>? res = await _authService.ResumeSession();
         if (res.StatusMessage == "Success" && !String.IsNullOrWhiteSpace(res.Data))
         {
             MainMenuViewModel mainmenuVM = _mainMenuVM();

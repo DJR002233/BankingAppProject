@@ -55,6 +55,7 @@ out/
 # Configuration files generated at runtime
 appsettings.Development.json
 appsettings.Production.json
+appsettings.json
 launchSettings.json
 *.deps.json
 *.runtimeconfig.json

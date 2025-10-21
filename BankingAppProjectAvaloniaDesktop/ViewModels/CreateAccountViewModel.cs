@@ -68,7 +68,7 @@ public class CreateAccountViewModel : ViewModelBase
             return;
         }
 
-        SimpleDialogModel<object> res = await _authService.CreateAccountAsync(Name, Email, passwordBoxes.Password);
+        SimpleDialogModel res = await _authService.CreateAccountAsync(Name, Email, passwordBoxes.Password);
 
         if (res.StatusMessage == "Success")
         {

@@ -9,9 +9,9 @@ namespace BankingAppProjectAvaloniaDesktop.Services.Auth;
 
 public class AuthHeaderHandler : DelegatingHandler
 {
-    private readonly SessionManager _sessionManager;
+    private readonly ISessionManager _sessionManager;
 
-    public AuthHeaderHandler(SessionManager sessionManager)
+    public AuthHeaderHandler(ISessionManager sessionManager)
     {
         _sessionManager = sessionManager;
     }

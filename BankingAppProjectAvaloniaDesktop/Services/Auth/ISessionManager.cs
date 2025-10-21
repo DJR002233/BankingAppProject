@@ -9,4 +9,5 @@ public interface ISessionManager
     string? GetRefreshToken();
     Task<SimpleDialogModel<object>> TerminateSession();
     void SetSession(AuthModel authModel);
+    Task InitializeSession();
 }
