@@ -48,6 +48,6 @@
         Command="{Binding GoToLoginViewCommand}"
         Content="Log Out"/>
         </Grid>
-    <components:LoadingOverlay IsActive="{Binding IsLoading}" LoadingText="{Binding LoadingMessage}"/>
+    <components:LoadingOverlay IsActive="{Binding loadingOverlay.IsLoading}" LoadingText="{Binding loadingOverlay.LoadingMessage}"/>
     </Grid>
 </UserControl>

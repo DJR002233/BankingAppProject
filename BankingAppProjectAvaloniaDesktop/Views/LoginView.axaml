@@ -60,6 +60,6 @@
             Command="{Binding GoToCreateAccountViewCommand}"
             Content="Create an account"/>
         </Grid>
-        <components:LoadingOverlay IsActive="{Binding IsLoading}" LoadingText="{Binding LoadingMessage}"/>
+        <components:LoadingOverlay IsActive="{Binding loadingOverlay.IsLoading}" LoadingText="{Binding loadingOverlay.LoadingMessage}"/>
     </Grid>
 </UserControl>
